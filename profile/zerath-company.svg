@@ -1,0 +1,213 @@
+<svg width="600" height="180" viewBox="0 0 600 180" xmlns="http://www.w3.org/2000/svg">
+  <title>The Art of Engineering — Artisan Engineers</title>
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,600&amp;family=Josefin+Sans:wght@200;300&amp;display=swap');
+    </style>
+
+    <!-- Gold gradient (diagonal) -->
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#F6E48C"/>
+      <stop offset="40%"  stop-color="#D4A843"/>
+      <stop offset="100%" stop-color="#9E7220"/>
+    </linearGradient>
+
+    <!-- Gold gradient (horizontal, for text) -->
+    <linearGradient id="goldH" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#F6E48C"/>
+      <stop offset="50%"  stop-color="#D4A843"/>
+      <stop offset="100%" stop-color="#C49A38"/>
+    </linearGradient>
+
+    <!-- Horizontal gold for the line rules -->
+    <linearGradient id="goldLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#D4A843" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#D4A843" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Circle badge radial background -->
+    <radialGradient id="circBg" cx="38%" cy="30%" r="72%">
+      <stop offset="0%"   stop-color="#1E304E"/>
+      <stop offset="55%"  stop-color="#101F38"/>
+      <stop offset="100%" stop-color="#070D1A"/>
+    </radialGradient>
+
+    <!-- Subtle inner highlight on circle -->
+    <radialGradient id="circHighlight" cx="38%" cy="30%" r="50%">
+      <stop offset="0%"   stop-color="#FFFFFF" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Drop shadow for the badge -->
+    <filter id="shadow" x="-18%" y="-18%" width="136%" height="136%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#000000" flood-opacity="0.55"/>
+    </filter>
+
+    <!-- Glow for gold arc and key elements -->
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2.8" result="blur"/>
+      <feColorMatrix in="blur" type="matrix"
+        values="1 0.8 0 0 0   0.7 0.5 0 0 0   0 0 0 0 0   0 0 0 0.5 0" result="tinted"/>
+      <feMerge>
+        <feMergeNode in="tinted"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Softer glow for tiny dots -->
+    <filter id="dotGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1.8" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- ═══════════════════════════════════════════════════
+       ICON BADGE
+  ════════════════════════════════════════════════════ -->
+
+  <!-- Main circle (dark navy) -->
+  <circle cx="90" cy="90" r="78" fill="url(#circBg)" filter="url(#shadow)"/>
+
+  <!-- Inner highlight overlay -->
+  <circle cx="90" cy="90" r="78" fill="url(#circHighlight)"/>
+
+  <!-- Outer gold ring -->
+  <circle cx="90" cy="90" r="76" fill="none" stroke="url(#gold)" stroke-width="1.6" opacity="0.7"/>
+
+  <!-- Dashed inner ring decoration -->
+  <circle cx="90" cy="90" r="67" fill="none" stroke="url(#gold)" stroke-width="0.7"
+          stroke-dasharray="4 9" opacity="0.28"/>
+
+  <!-- Cardinal point dots on inner ring (top, right, bottom, left) -->
+  <circle cx="90"  cy="23" r="2.2" fill="url(#gold)" opacity="0.55" filter="url(#dotGlow)"/>
+  <circle cx="157" cy="90" r="2.2" fill="url(#gold)" opacity="0.55" filter="url(#dotGlow)"/>
+  <circle cx="90"  cy="157" r="2.2" fill="url(#gold)" opacity="0.55" filter="url(#dotGlow)"/>
+  <circle cx="23"  cy="90" r="2.2" fill="url(#gold)" opacity="0.55" filter="url(#dotGlow)"/>
+
+  <!-- ─── COMPASS INSTRUMENT ─── -->
+  <!--
+    Hinge (pivot) : (90, 46)
+    Right arm tip : (123, 130)  — engineering/precision side (steel blue)
+    Left arm tip  : (57,  130)  — artistic/brush side (gold)
+    Arm length    : sqrt(33² + 84²) = sqrt(1089 + 7056) = sqrt(8145) ≈ 90.2
+    Arc center    : (90, 46), radius 90.2
+    Arc bottom    : (90, 46+90.2) = (90, 136.2)
+    Arc path      : M 123 130 A 90.2 90.2 0 0 1 57 130
+                    (clockwise, short arc through bottom)
+  -->
+
+  <!-- === RIGHT ARM: Engineering / precision (steel-blue) === -->
+  <line x1="90" y1="46" x2="123" y2="130"
+        stroke="#7AAFD4" stroke-width="2.8" stroke-linecap="round"/>
+
+  <!-- Ruler tick marks along right arm (subtle engineering detail) -->
+  <!-- Direction unit: (33,84)/90.2 = (0.366, 0.931) -->
+  <!-- Perp unit: (-0.931, 0.366) -->
+  <!-- Ticks at 30px, 50px, 70px along arm from hinge -->
+  <!-- Tick at 30px: center = (90+30*0.366, 46+30*0.931) = (101.0, 73.9) -->
+  <line x1="98.4" y1="73.2" x2="103.6" y2="74.6" stroke="#7AAFD4" stroke-width="0.9" opacity="0.5"/>
+  <!-- Tick at 50px: center = (90+50*0.366, 46+50*0.931) = (108.3, 92.6) -->
+  <line x1="105.6" y1="91.8" x2="111.0" y2="93.4" stroke="#7AAFD4" stroke-width="0.9" opacity="0.5"/>
+  <!-- Tick at 70px: center = (90+70*0.366, 46+70*0.931) = (115.6, 111.2) -->
+  <line x1="112.9" y1="110.4" x2="118.3" y2="112.0" stroke="#7AAFD4" stroke-width="0.9" opacity="0.5"/>
+
+  <!-- Pencil/pointer tip at (123, 130) -->
+  <!-- Perp: (-0.931, 0.366) = left; (0.931, -0.366) = right -->
+  <!-- left side: (123-3.5*0.931, 130+3.5*0.366) = (119.7, 131.3) -->
+  <!-- right side: (123+3.5*0.931, 130-3.5*0.366) = (126.3, 128.7) -->
+  <!-- point (8px along arm): (123+8*0.366, 130+8*0.931) = (126.0, 137.4) -->
+  <polygon points="119.7,131.3 126.3,128.7 126.0,137.4" fill="#7AAFD4" opacity="0.9"/>
+  <!-- Small shine on pencil tip -->
+  <polygon points="120.5,131.0 122.5,130.4 123.5,133.0" fill="#BDDCF0" opacity="0.4"/>
+
+  <!-- === LEFT ARM: Artistic / paintbrush (gold) === -->
+  <line x1="90" y1="46" x2="57" y2="130"
+        stroke="url(#gold)" stroke-width="2.8" stroke-linecap="round"/>
+
+  <!-- Paintbrush at (57, 130) -->
+  <!-- Arm direction from hinge: (-33, 84)/90.2 = (-0.366, 0.931) -->
+  <!-- Perp: (-0.931,-0.366) = left; (0.931, 0.366) = right -->
+
+  <!-- Ferrule (metal band, steel-blue) connecting arm to bristles -->
+  <!-- Band spans ±4.5 perp at (57,130): -->
+  <!-- left:  (57-4.5*0.931, 130-4.5*0.366) = (52.8, 128.4) -->
+  <!-- right: (57+4.5*0.931, 130+4.5*0.366) = (61.2, 131.6) -->
+  <line x1="52.8" y1="128.4" x2="61.2" y2="131.6" stroke="#7AAFD4" stroke-width="4" stroke-linecap="round" opacity="0.75"/>
+
+  <!-- Bristle body (tapered polygon, gold) -->
+  <!-- Base (width ±5 at ferrule bottom, ~2px along arm below ferrule): -->
+  <!--   center_base = (57-2*0.366, 130+2*0.931) = (56.3, 131.9) -->
+  <!--   base_left:  (56.3-5*0.931, 131.9-5*0.366) = (51.6, 130.1) -->
+  <!--   base_right: (56.3+5*0.931, 131.9+5*0.366) = (61.0, 133.7) -->
+  <!-- Tip (10px along arm from bristle base): -->
+  <!--   center_tip = (56.3-10*0.366, 131.9+10*0.931) = (52.6, 141.2) -->
+  <!--   tip_left:  (52.6-2*0.931, 141.2-2*0.366) = (50.7, 140.5) -->
+  <!--   tip_right: (52.6+2*0.931, 141.2+2*0.366) = (54.5, 141.9) -->
+  <!--   very_tip:  (52.6, 143.0) -->
+  <path d="M 51.6 130.1 L 61.0 133.7 L 54.5 141.9 L 52.6 143.5 L 50.7 140.5 Z"
+        fill="url(#gold)" opacity="0.92"/>
+
+  <!-- Bristle texture lines (hair-thin) -->
+  <line x1="53.0" y1="130.8" x2="51.5" y2="141.5" stroke="#F6E48C" stroke-width="0.75" opacity="0.5"/>
+  <line x1="55.5" y1="131.7" x2="54.0" y2="142.2" stroke="#F6E48C" stroke-width="0.75" opacity="0.5"/>
+  <line x1="58.0" y1="132.7" x2="57.0" y2="141.0" stroke="#F6E48C" stroke-width="0.65" opacity="0.4"/>
+
+  <!-- === GOLDEN ARC (the masterpiece stroke) === -->
+  <path d="M 123 130 A 90.2 90.2 0 0 1 57 130"
+        fill="none"
+        stroke="url(#gold)"
+        stroke-width="2.8"
+        stroke-linecap="round"
+        filter="url(#glow)"/>
+
+  <!-- Bottom-of-arc jewel dot -->
+  <circle cx="90" cy="136" r="3" fill="url(#gold)" opacity="0.7" filter="url(#dotGlow)"/>
+
+  <!-- === PIVOT / HINGE === -->
+  <circle cx="90" cy="46" r="7" fill="url(#gold)"/>
+  <circle cx="90" cy="46" r="4" fill="#1A2A42"/>
+  <circle cx="90" cy="46" r="1.8" fill="url(#gold)" opacity="0.8"/>
+
+  <!-- ═══════════════════════════════════════════════════
+       LOGOTYPE — TEXT SECTION
+  ════════════════════════════════════════════════════ -->
+
+  <!-- "The Art" — italic gold serif, large and commanding -->
+  <text
+    x="192" y="82"
+    font-family="'Cormorant Garamond', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif"
+    font-style="italic"
+    font-weight="600"
+    font-size="54"
+    fill="url(#goldH)"
+    letter-spacing="2">The Art</text>
+
+  <!-- Thin gold rule between title and subtitle -->
+  <rect x="192" y="90" width="390" height="0.9" fill="url(#goldLine)" opacity="0.45"/>
+
+  <!-- "OF ENGINEERING" — tracked light geometric sans -->
+  <text
+    x="193" y="120"
+    font-family="'Josefin Sans', 'Gill Sans MT', 'Century Gothic', Futura, 'Trebuchet MS', sans-serif"
+    font-weight="300"
+    font-size="24"
+    fill="#C8D5E8"
+    letter-spacing="12">OF ENGINEERING</text>
+
+  <!-- Bottom thin rule -->
+  <rect x="192" y="130" width="390" height="0.7" fill="url(#goldLine)" opacity="0.3"/>
+
+  <!-- "ARTISAN ENGINEERS" tagline -->
+  <text
+    x="196" y="152"
+    font-family="'Josefin Sans', 'Gill Sans MT', 'Century Gothic', Futura, 'Trebuchet MS', sans-serif"
+    font-weight="200"
+    font-size="11.5"
+    fill="#7BAAC8"
+    letter-spacing="7">ARTISAN  ENGINEERS</text>
+
+  <!-- Tiny flanking gold dots for the tagline -->
+  <circle cx="192" cy="148" r="1.5" fill="url(#gold)" opacity="0.55" filter="url(#dotGlow)"/>
+  <circle cx="580" cy="148" r="1.5" fill="url(#gold)" opacity="0.55" filter="url(#dotGlow)"/>
+
+</svg>
