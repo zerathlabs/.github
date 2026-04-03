@@ -1,6 +1,4 @@
 <p align="center">
-  <img src="./zerath-company.svg" alt="Zerath Labs Logo" />
-
   <h2 align="center">ZERATH LABS</h2>
 
   <p align="center">
