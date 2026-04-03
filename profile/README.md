@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./zerath-company.svg" alt="Zerath Labs Logo" width="120" />
+  <img src="./zerath-company.svg" alt="Zerath Labs Logo" />
 
   <h2 align="center">ZERATH LABS</h2>
 
