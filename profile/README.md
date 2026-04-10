@@ -10,7 +10,7 @@
     <br />
     <a href="https://zerathlabs.com">Website</a>
     ·
-    <a href="https://github.com/your-org">GitHub</a>
+    <a href="https://github.com/zerathlabs">GitHub</a>
     ·
     <a href="mailto:hello@zerathlabs.com">Contact</a>
   </p>
