@@ -1,0 +1,22 @@
+# Organization GitHub Configuration
+
+This repository manages shared GitHub configuration for the `zerath-company` organization.
+
+It contains:
+
+- the public organization profile in `profile/README.md`
+- shared pull request and issue templates
+- organization-level GitHub Actions workflows
+- supporting automation and maintenance files
+
+## Structure
+
+- `profile/` - organization profile assets and README
+- `ISSUE_TEMPLATE/` - default issue templates
+- `PULL_REQUEST_TEMPLATE.md` - default pull request template
+- `workflows/` - shared workflow definitions
+- `dependabot.yml` - dependency update configuration
+
+## Notes
+
+Changes in this repository affect how the organization is presented and how contributors interact with shared GitHub defaults.
